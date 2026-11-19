@@ -30,16 +30,18 @@ const CAMERA_MOVES = [
   { x: 6, y: -7, scale: 1.02, rotateX: -2.9, rotateY: -1.8 },
 ] as const;
 const TRANSITION_STYLES = [
-  { name: 'orbit-y', fromX: -7, fromY: 5, toX: 0, toY: -1, z: 0, roll: -0.7, mask: 'inset(0% 100% 0% 0%)', exitX: 7, exitY: -4 },
-  { name: 'hinge-x', fromX: 7, fromY: -4, toX: 0, toY: 1, z: 0, roll: 0.55, mask: 'inset(0% 0% 100% 0%)', exitX: -6, exitY: 4 },
-  { name: 'z-spin', fromX: -3, fromY: 3, toX: 0, toY: 0, z: 0, roll: -2, mask: 'inset(0% 0% 0% 100%)', exitX: 4, exitY: -5 },
-  { name: 'card-flip', fromX: 2, fromY: -9, toX: 0, toY: 1, z: 70, roll: 0.6, mask: 'inset(0% 100% 0% 0%)', exitX: -2, exitY: 9 },
-  { name: 'whip-orbit', fromX: -4, fromY: 7, toX: 1, toY: 0, z: 0, roll: -1.1, mask: 'inset(0% 0% 0% 100%)', exitX: 5, exitY: -8 },
-  { name: 'cube-face', fromX: 4, fromY: -8, toX: -1, toY: 0, z: 55, roll: 0.8, mask: 'inset(100% 0% 0% 0%)', exitX: -4, exitY: 8 },
-  { name: 'camera-orbit', fromX: -6, fromY: 4, toX: 0, toY: -1, z: 0, roll: -0.45, mask: 'inset(0% 0% 100% 0%)', exitX: 6, exitY: -4 },
-  { name: 'counter-fold', fromX: 5, fromY: 6, toX: 0, toY: 0, z: 35, roll: 1.5, mask: 'inset(100% 0% 0% 0%)', exitX: -5, exitY: -6 },
-  { name: 'split-aperture', fromX: -4, fromY: -6, toX: 0, toY: 1, z: 0, roll: -0.55, mask: 'inset(0% 50% 0% 50%)', exitX: 4, exitY: 6 },
-  { name: 'tilted-reveal', fromX: 8, fromY: 3, toX: 0, toY: -1, z: 45, roll: 0.7, mask: 'inset(0% 0% 100% 0%)', exitX: -8, exitY: -3 },
+  { name: 'panel-y', fromX: 2, fromY: -9, toX: 0, toY: 0, z: 110, roll: 0.8, mask: 'inset(0% 100% 0% 0%)', exitX: -2, exitY: 9, exitRoll: -1.4, scaleStart: 0.94, perspectiveOrigin: '72% 48%', cameraX: 10, cameraY: -3 },
+  { name: 'hinge-x', fromX: 8, fromY: -2, toX: 0, toY: 0, z: 30, roll: -0.6, mask: 'inset(0% 0% 100% 0%)', exitX: -7, exitY: 2, exitRoll: 1.2, scaleStart: 0.97, perspectiveOrigin: '50% 18%', cameraX: -7, cameraY: 5 },
+  { name: 'z-zoom', fromX: -2, fromY: 3, toX: 0, toY: 0, z: 0, roll: -3.2, mask: 'inset(0% 0% 0% 100%)', exitX: 3, exitY: -4, exitRoll: 3.5, scaleStart: 0.9, perspectiveOrigin: '50% 52%', cameraX: -6, cameraY: 2 },
+  { name: 'card-flip', fromX: 2, fromY: -9, toX: 0, toY: 0, z: 150, roll: 0.8, mask: 'inset(0% 100% 0% 0%)', exitX: -2, exitY: 9, exitRoll: -1.4, scaleStart: 0.92, perspectiveOrigin: '70% 50%', cameraX: 8, cameraY: 0 },
+  { name: 'whip-orbit', fromX: -3, fromY: 7, toX: 0, toY: 0, z: 20, roll: -1.7, mask: 'inset(0% 0% 0% 100%)', exitX: 4, exitY: -8, exitRoll: 2, scaleStart: 0.96, perspectiveOrigin: '24% 48%', cameraX: -18, cameraY: 5 },
+  { name: 'cube-face', fromX: 3, fromY: -9, toX: 0, toY: 0, z: 125, roll: 0.7, mask: 'inset(100% 0% 0% 0%)', exitX: -3, exitY: 9, exitRoll: -1.3, scaleStart: 0.95, perspectiveOrigin: '82% 50%', cameraX: 13, cameraY: -2 },
+  { name: 'camera-orbit', fromX: -6, fromY: 4, toX: 0, toY: 0, z: 45, roll: -0.7, mask: 'inset(0% 0% 100% 0%)', exitX: 6, exitY: -4, exitRoll: 1.3, scaleStart: 0.96, perspectiveOrigin: '35% 40%', cameraX: 16, cameraY: -6 },
+  { name: 'rotational-zoom', fromX: 4, fromY: 6, toX: 0, toY: 0, z: 70, roll: 2.6, mask: 'inset(100% 0% 0% 0%)', exitX: -4, exitY: -6, exitRoll: -2.8, scaleStart: 0.88, perspectiveOrigin: '64% 68%', cameraX: -9, cameraY: 7 },
+  { name: 'whip-pan', fromX: -3, fromY: -6, toX: 0, toY: 0, z: 0, roll: -1.2, mask: 'inset(0% 50% 0% 50%)', exitX: 4, exitY: 8, exitRoll: 1.6, scaleStart: 0.94, perspectiveOrigin: '48% 54%', cameraX: 20, cameraY: -4 },
+  { name: 'cube-x', fromX: -8, fromY: 4, toX: 0, toY: 0, z: 105, roll: -0.7, mask: 'inset(0% 0% 100% 0%)', exitX: 8, exitY: -4, exitRoll: 1.4, scaleStart: 0.94, perspectiveOrigin: '46% 82%', cameraX: -10, cameraY: 6 },
+  { name: 'parallax-fold', fromX: 5, fromY: -7, toX: 0, toY: 0, z: 90, roll: 1.5, mask: 'inset(0% 0% 0% 100%)', exitX: -5, exitY: 7, exitRoll: -1.8, scaleStart: 0.91, perspectiveOrigin: '76% 34%', cameraX: 11, cameraY: 7 },
+  { name: 'tilted-reveal', fromX: 7, fromY: 3, toX: 0, toY: 0, z: 85, roll: 1.1, mask: 'inset(0% 0% 100% 0%)', exitX: -7, exitY: -3, exitRoll: -1.5, scaleStart: 0.93, perspectiveOrigin: '28% 22%', cameraX: -12, cameraY: -5 },
 ] as const;
 const CHAPTER_DURATIONS = [8700, 10550, 10600, 11200] as const;
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -111,7 +113,17 @@ export function MemorySequenceScene({
           backgroundImage: `radial-gradient(ellipse at 52% 48%, rgb(228 117 96 / 11%), transparent 52%), linear-gradient(130deg, #151217 0%, ${PALETTES[chapterIndex]} 58%, #111014 100%)`,
         }}
       />
-      <div aria-hidden="true" className="memory-depth-grid absolute inset-0" />
+      <motion.div
+        aria-hidden="true"
+        className="memory-depth-grid absolute inset-0"
+        animate={{
+          x: [camera.x * 0.08, camera.x * 0.18, camera.x * 0.12],
+          y: [camera.y * 0.08, camera.y * 0.18, camera.y * 0.12],
+          rotate: [0, globalImageIndex % 2 === 0 ? 0.18 : -0.18, 0],
+        }}
+        transition={{ duration: shotDuration, ease: EASE }}
+        style={{ transformOrigin: '50% 50%' }}
+      />
       <div aria-hidden="true" className="memory-vignette absolute inset-0" />
       <motion.div
         aria-hidden="true"
@@ -164,14 +176,18 @@ export function MemorySequenceScene({
         className="memory-camera absolute inset-0"
         aria-label={`Archive frame ${globalImageIndex + 1}`}
         animate={{
-          x: camera.x,
-          y: camera.y,
-          scale: camera.scale,
-          rotateX: camera.rotateX,
-          rotateY: camera.rotateY,
+          x: [camera.x * 0.35, camera.x + transitionStyle.cameraX * 0.18, camera.x],
+          y: [camera.y * 0.35, camera.y + transitionStyle.cameraY * 0.18, camera.y],
+          scale: [1, camera.scale + 0.006, camera.scale],
+          rotateX: [camera.rotateX * 0.35, camera.rotateX + transitionStyle.fromX * 0.18, camera.rotateX],
+          rotateY: [camera.rotateY * 0.35, camera.rotateY + transitionStyle.fromY * 0.18, camera.rotateY],
         }}
         transition={{ duration: shotDuration, ease: EASE }}
-        style={{ transformStyle: 'preserve-3d', transformOrigin: '50% 50%' }}
+        style={{
+          transformStyle: 'preserve-3d',
+          transformOrigin: '50% 50%',
+          perspectiveOrigin: transitionStyle.perspectiveOrigin,
+        }}
       >
       <AnimatePresence mode="sync" initial={false}>
         <motion.div
@@ -182,7 +198,7 @@ export function MemorySequenceScene({
             x: transitionStyle.name === 'whip-orbit' ? transitionStyle.fromY * 4 : transitionStyle.fromY * 1.5,
             y: transitionStyle.name === 'whip-orbit' ? transitionStyle.fromX * 2 : transitionStyle.fromX * 1.2,
             z: transitionStyle.z,
-            scale: isMemoryField ? 0.96 : isFinalPlate ? 0.94 : 0.965,
+            scale: isMemoryField ? 0.96 : isFinalPlate ? 0.94 : transitionStyle.scaleStart,
             rotate: composition.rotate + transitionStyle.roll,
             rotateX: transitionStyle.fromX,
             rotateY: transitionStyle.fromY,
@@ -198,7 +214,7 @@ export function MemorySequenceScene({
               ? [0.96, 0.92, 0.88]
               : isFinalPlate
                 ? [0.94, 1, 1]
-                : [0.965, camera.scale + 0.012, camera.scale],
+                : [transitionStyle.scaleStart, camera.scale + 0.018, camera.scale],
             rotate: [composition.rotate + transitionStyle.roll, composition.rotate - transitionStyle.roll * 0.28, composition.rotate],
             rotateX: [transitionStyle.fromX, transitionStyle.toX, transitionStyle.toX + camera.rotateX * 0.18],
             rotateY: [transitionStyle.fromY, transitionStyle.toY, transitionStyle.toY + camera.rotateY * 0.18],
@@ -211,7 +227,7 @@ export function MemorySequenceScene({
             y: transitionStyle.exitX * 0.8,
             z: transitionStyle.z * -0.5,
             scale: isMemoryField ? 0.82 : 1.045,
-            rotate: composition.rotate - transitionStyle.roll,
+            rotate: composition.rotate + transitionStyle.exitRoll,
             rotateX: transitionStyle.exitX,
             rotateY: transitionStyle.exitY,
             clipPath: transitionStyle.mask === 'inset(0% 50% 0% 50%)'
