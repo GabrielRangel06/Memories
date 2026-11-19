@@ -1,0 +1,1 @@
+- [Imported artifact routing](imported-artifact-routing.md) — after a conversation transition, use preserved files under .local as source; put the live artifact under root artifacts/.

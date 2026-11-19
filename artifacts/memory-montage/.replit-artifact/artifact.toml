@@ -1,0 +1,29 @@
+kind = "video"
+videoAspectRatio = "16:9"
+previewPath = "/memory-montage/"
+title = "Fati Memory Film"
+description = "A 41-second memory montage built from 61 original screenshots and the supplied soundtrack, with cinematic 3D transitions."
+version = "1.0.0"
+id = "artifacts/memory-montage"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/memory-montage/" ]
+localPort = 24010
+
+[services.development]
+run = "pnpm --filter @workspace/memory-montage run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/memory-montage", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/memory-montage/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24010"
+BASE_PATH = "/memory-montage/"
